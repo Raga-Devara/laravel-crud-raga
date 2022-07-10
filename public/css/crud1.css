@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&display=swap');
+*{
+    margin: 0;
+    font-family: 'Poppins';
+}
+
+
+.judul{
+    background-color: #3A5BA0;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.judul h1,p{
+    color: white;
+    text-align: center;
+}
+.main{
+    background-color: white;
+    padding: 0 50px;
+}
+.card{
+    background-color: rgb(243, 245, 249);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+.add td{
+    text-align: right;
+    padding-bottom: 20px;
+    border: none;
+}
+.add td a{
+    background-color: #3A5BA0;
+    color: white;
+    padding: 5px 7px;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+table{
+    font-family: arial, sans-serif;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
