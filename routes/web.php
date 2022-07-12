@@ -4,6 +4,8 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CrudController;
+use App\Models\Category;
+use App\Models\User;
 
 
 /*
@@ -39,6 +41,27 @@ Route::get('/blog', [PostController::class, 'index']);
 
 // Halaman Single Post
 Route::get('blog/{post:slug}', [PostController::class, 'show']);
+
+Route::get('/categories', function(){
+    return view('categories',[
+        'title' =>'Post Categories',
+        'categories' =>Category::all(),
+    ]);
+});
+
+Route::get('/categories/{category:slug}', function(Category $category){
+    return view('blog',[
+        'title' =>"Post by Category: $category->name",
+        'posts' =>$category->posts->load('category', 'user')
+    ]);
+});
+
+Route::get('/authors/{author:username}', function(User $author){
+    return view('blog',[
+        'title' =>"Post by Author: $author->name",
+        'posts' =>$author->posts->load('category', 'user'),
+    ]);
+});
 
 
 
