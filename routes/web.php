@@ -25,7 +25,8 @@ Route::get('/', function () {
 
 Route::get('/home', function () {
     return view('home', [
-        "title" => "Home"
+        "title" => "Home",
+        "active" => 'home'
     ]);
 });
 Route::get('/about', function () {
@@ -33,6 +34,7 @@ Route::get('/about', function () {
         "title" => "About",
         "name" => "Raga Devara",
         "email" =>"111@gmail.com",
+        "active" => 'about',
         "image" => "foto.png"
     ]);
 });
@@ -45,6 +47,7 @@ Route::get('blog/{post:slug}', [PostController::class, 'show']);
 Route::get('/categories', function(){
     return view('categories',[
         'title' =>'Post Categories',
+        "active" => 'categories',
         'categories' =>Category::all(),
     ]);
 });
@@ -52,6 +55,7 @@ Route::get('/categories', function(){
 Route::get('/categories/{category:slug}', function(Category $category){
     return view('blog',[
         'title' =>"Post by Category: $category->name",
+        "active" => 'categories',
         'posts' =>$category->posts->load('category', 'user')
     ]);
 });
